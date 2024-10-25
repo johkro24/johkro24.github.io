@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node format-html.js",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "export": "next export"
@@ -24,7 +24,6 @@
     "eslint-config-next": "15.0.1",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14",
-    "typescript": "^5",
-    "prettier": "^2.8.0"
+    "typescript": "^5"
   }
 }
