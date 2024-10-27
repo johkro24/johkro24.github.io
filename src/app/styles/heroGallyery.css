@@ -1,0 +1,9 @@
+.hero-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .hero-card img {
+    object-fit: cover;
+  }
+  

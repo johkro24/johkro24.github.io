@@ -1,35 +1,29 @@
 // src/app/page.tsx
+"use client";
 
-"use client"; // Add this line to mark the component as a client component
+import React, { useEffect, useState } from "react";
+import HeroGallery from "../components/HeroGallery";
+import { Hero } from "../types/hero";
 
-import { useEffect, useState } from "react";
-import axios from "axios";
+export default function Home() {
+    const [heroes, setHeroes] = useState<Hero[]>([]);
 
-const Home = () => {
-  const [data, setData] = useState(null);
+    useEffect(() => {
+        const fetchHeroes = async () => {
+            try {
+                const response = await fetch("/api/heroes");
+                const data = await response.json();
+                setHeroes(data);
+            } catch (error) {
+                console.error("Error fetching hero data:", error);
+            }
+        };
+        fetchHeroes();
+    }, []);
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        "https://overwatch.blizzard.com/en-us/news/patch-notes/"
-      ); // Replace with your API URL
-      setData(response.data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData(); // Fetch data on component mount
-  }, []);
-
-  return (
-    <div>
-      <h1>Overwatch 2 Counters</h1>
-      <button onClick={fetchData}>Sync Data</button>
-      {data && <div>{JSON.stringify(data)}</div>} {/* Display data */}
-    </div>
-  );
-};
-
-export default Home;
+    return (
+        <div className="min-h-screen bg-midnight-blue flex items-center justify-center p-6">
+            <HeroGallery heroes={heroes} />
+        </div>
+    );
+}

@@ -1,9 +1,11 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
 module.exports = {
-  content: [],
   theme: {
-    extend: {},
+      extend: {
+          colors: {
+              'midnight-blue': '#2c3e50',
+          },
+      },
   },
   plugins: [],
-}
-
+};
