@@ -17,7 +17,7 @@
     "paths": {
       "@/*": ["./*"],
       "@components/*": ["./src/components/*"],
-      "@types/*": ["types/hero.d.ts"]
+      "@types/*": ["types/hero.d.ts", "types/*"]
     },
     "plugins": [
       {
@@ -25,7 +25,15 @@
       }
     ]
   },
-  "include": ["next-env.d.ts","src/**/*","../components/HeroGaller**", "**/*.ts", "**/*.tsx","**/*.d.ts", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "src/**/*",
+    "src/types/hero.ts",
+    "../components/HeroGaller**",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.d.ts",
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules"]
-  
 }
